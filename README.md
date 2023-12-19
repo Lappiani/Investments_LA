@@ -3,4 +3,4 @@
 
 ## Fixed Income
 
-* (Bonds and Interest Rates article)
+* [Bonds and Interest Rates article](https://lappiani.github.io/Investments_LA/Fixed%20income/index.html)
