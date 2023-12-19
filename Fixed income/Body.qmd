@@ -1,0 +1,15 @@
+---
+title: "Fixed Income"
+author: "Luca Appiani"
+format: html
+lang: en
+css: style.css
+date: today
+---
+
+{{< include sections/IR_and_bonds.qmd >}}
+
+## References
+
+
+
