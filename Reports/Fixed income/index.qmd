@@ -3,13 +3,14 @@ title: "Fixed Income"
 author: "Luca Appiani"
 format: html
 lang: en
-css: style.css
+css: sections/style.css
 date: today
+bibliography: bibliography/refs.bib
 ---
 
 {{< include sections/IR_and_bonds.qmd >}}
 
-## References
+
 
 
 

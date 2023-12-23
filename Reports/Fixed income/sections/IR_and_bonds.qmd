@@ -1,7 +1,151 @@
 ## Interest Rates and Bond Performance
 
+The following section was built using information from @pimco.
+
 Interest rates reflect the cost of borrowing money, and they are a critical part of the economic system. In many developed countries there is a base interest rate, which is used as a benchmark rate. Said interest rate is determined by the central banks of the respective countries, and they lower or raise this instrument according to their monetary policy.
 
 The decision of what to do relating the interest rates depends highly on the levels of inflation and growth of the country. Thus, if the levels of inflation and growth are high, interest rates will probably be raised in order to decrement consumption of goods and services. This often prompts retail banks to raise the rates at which they lend, pushing up the cost of borrowing. Banks may also raise their deposit rates, which makes savings more attractive.
 
 On the other hand, if the economy is slowing, the central bank may reduce the base rate. In turn, retail banks may lower their rates making it more attractive to borrow and spend money but less attractive to save it.
+
+## Short-Term versus Long-Term Rates
+
+While central banks are responsible for setting a country's short term rate, **they do not control the long term interest rates**. Instead, it is the market forces of supply and demand that determine long term bond pricing. In turn, this provides direction for long term interest rates.
+
+> For example, if market participants believe a central bank has set interest rates too low, they may worry about a potential increase in inflation. To compensate for this risk, issuers of long dated bonds will tend to offer higher interest rates. This may cause the yield curve,  which reflects the relationship between long and short term bonds, to steepen.
+
+## Why Interest Rates affect Bonds
+
+Bond prices have an inverse relationship with interest rates. This means that when interest rates go up, bond prices go down and when interest rates go down, bond prices go up. This can be better seen in @eq-bond-price.
+
+$$
+\text{Bond price} = \sum^{T}_{i=1}\frac{C_{i}}{(1+r)^{i}} + \frac{P}{(1+r)^{T}}\;. 
+$$ {#eq-bond-price}
+
+Where $T$ is the number of periods to maturity, $C_{i}$ are the interest coupon payments, $r$ is the discount rate or yield to maturity, and $P$ is the par value of the bond.
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-pos: h!
+#| fig-cap: Relation between bond price and yield
+
+# Generate random data for bond yields and prices
+maturities <- seq(1, 10, by = 1)  # Maturities from 1 to 10 years
+yields <- seq(2, 4, length.out = 10)  # Random yields
+prices <- exp(-maturities/10)  # Prices calculated for simplicity
+
+# Plot the yield curve
+plot(maturities, yields, type = "l", col = "blue", lwd = 2,
+     xlab = "Maturity (Years)", ylab = "Yield (%)",
+     main = "Bond Yield Curve")
+
+# Add a secondary y-axis for bond prices
+par(new = TRUE)
+plot(maturities, prices, type = "l", col = "red", lty = 2, lwd = 2,
+     xlab = "", ylab = "", axes = FALSE)
+axis(side = 4, at = pretty(range(prices)), col = "red", col.axis = "red", las = 1)
+mtext(side = 4, line = 3, "Price", col = "red")
+
+# Add legend
+legend("topright", legend = c("Yield", "Price"), col = c("blue", "red"), lty = c(1, 2), lwd = 2)
+
+# Add grid
+grid()
+
+
+```
+
+The variation of interest rates is currently known as **interest rate risk**, which is the risk that the price of a bond will fall when interest rates fall.
+
+## Are Rising Rates Always Bad for Bonds?
+
+In the short run, rising interest rates may negatively affect the value of a bond portfolio. However, over the long run, rising interest rates can actually increase a bond portfolio's overall return. The latter, because of money from maturing bonds can be reinvested into new bonds with higher yields.
+
+## Investing Opportunities
+
+Now, the real life application of this goes in the line of investment opportunities in fixed income. In the short run, when the central bank of a country has a base rate that is currently in a high level in comparison to other periods of time, this could possibly mean that if inflation is indicating a downward trend, it is likely that the central entity will reduce the base rate accordingly.
+
+It is important to note that depending on the country, the aggressiveness in which the central banks controls its base rate varies substantially. For example, from the time in which this article is being written^[December of 2023], the Federal Reserve has had a very *hawkish*^[Policy maker or advisor who prioritizes controlling inflation and may favor higher interest rates to keep it in check.] stance when it comes to lowering their base rate. On the other hand, the Central Bank of Chile, has been lowering the base rate quite aggressively.
+
+```{r}
+#| echo: false
+#| fig-align: center
+#| fig-cap: Chile base rate change from 2022 to 2023
+#| warning: false
+
+library(readxl)
+
+tpm_data <- read_excel("C:/Users/USER/OneDrive/Escritorio/Git repos/Investments_LA/Reports/Fixed income/Datos/TPM/TPM_DATA.xlsx")
+
+x <- tpm_data$Periodo
+y <- tpm_data$`Tasa de política monetaria (TPM) (porcentaje)`
+
+start_date <- as.POSIXct("2022-01-01")
+
+filter_data <- tpm_data[x >= start_date,]
+
+plot(filter_data$Periodo, filter_data$`Tasa de política monetaria (TPM) (porcentaje)`, type = "l", col = "blue", xlab="", ylab = "Base Rate (%)", main = "Chile Base Rate Change")
+
+grid()
+```
+The latter has benefited fixed income focused funds, which have had good returns in the month of November and December of 2023.
+
+## Case Studies
+
+Now, some mutual funds will be studied, whose strategies focues mainly on fixed income.
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-align: center
+#| fig-cap: Quota value of mutual fund *Banchile Estrategico series L* (@cmfchile)
+
+
+library(readxl)
+
+
+data <- read_excel("C:/Users/USER/OneDrive/Escritorio/Git repos/Investments_LA/Reports/Fixed income/Datos/FFMM/Banchile estrategico L.xlsx")
+
+prices <- data$`Valor cuota`
+
+# Compute returns
+geom_returns <- prices / lag(prices, default = prices[1]) - 1
+
+plot(data$Fecha, data$`Valor cuota`, type = "l", col = "blue", xlab = "", ylab = "Quota value (CLP)", main = expression(italic("FFMM Banchile Estrategico")))
+grid()
+
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| fig-align: center
+#| fig-cap: Quota value of mutual fund *Banchile Portafolio Conservador series L* (@cmfchile)
+
+
+library(readxl)
+
+
+data <- read_excel("C:/Users/USER/OneDrive/Escritorio/Git repos/Investments_LA/Reports/Fixed income/Datos/FFMM/FFMM Banchile Portafolio Conservador L.xlsx")
+
+prices <- data$`Valor cuota`
+
+# Compute returns
+geom_returns <- prices / lag(prices, default = prices[1]) - 1
+
+plot(data$Fecha, data$`Valor cuota`, type = "l", col = "blue", xlab = "", ylab = "Quota value (CLP)", main = expression(italic("FFMM Banchile Portafolio Conservador")))
+grid()
+
+```
+### *Banchile Estrategico* {#sec-BE}
+
+The strategy of this mutual fund is to invest in at least 60% UF^[Chilean unit used to adjust the value of money in time.], like deposits, and bank and corporate bonds with a duration between three and five years. 
+
+This explains the positive results the fund has had in past months, because as we saw in @eq-bond-price, when interest rates fall, the price of bonds increases, thus providing opportunities of capital gains.
+
+### *Banchile Portafolio Conservador*
+
+The objective of the mutual fund is to offer an investment alternative in instruments of median and long term, through a portfolio that is comprised mainly by capitalization instruments^[Financial instrument that is classified as either equity or debt in accounting.] and debt issued by the principal institutions who participate in the national and foreign capital markets.
+
+Although this fund does not focus solely on debt instruments, it is the largest part of the portfolio, about 80%. Which, as the other example, provides good contributions to the performance of the fund, because of the reasons already mentioned in the previous @sec-BE.

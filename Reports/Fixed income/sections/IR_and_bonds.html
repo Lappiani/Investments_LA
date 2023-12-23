@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Luca Appiani">
-<meta name="dcterms.date" content="2023-12-23">
 
-<title>Fixed Income</title>
+<title>ir_and_bonds</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,43 +20,57 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/quarto.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="index_files/libs/quarto-html/anchor.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="IR_and_bonds_files/libs/clipboard/clipboard.min.js"></script>
+<script src="IR_and_bonds_files/libs/quarto-html/quarto.js"></script>
+<script src="IR_and_bonds_files/libs/quarto-html/popper.min.js"></script>
+<script src="IR_and_bonds_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="IR_and_bonds_files/libs/quarto-html/anchor.min.js"></script>
+<link href="IR_and_bonds_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="IR_and_bonds_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="IR_and_bonds_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="IR_and_bonds_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="IR_and_bonds_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="sections/style.css">
 </head>
 
 <body class="fullcontent">
@@ -67,38 +79,11 @@ div.csl-indent {
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Fixed Income</h1>
-</div>
 
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Luca Appiani </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 23, 2023</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-</header>
 
 <section id="interest-rates-and-bond-performance" class="level2">
 <h2 class="anchored" data-anchor-id="interest-rates-and-bond-performance">Interest Rates and Bond Performance</h2>
-<p>The following section was built using information from <span class="citation" data-cites="pimco">PIMCO (<a href="#ref-pimco" role="doc-biblioref">n.d.</a>)</span>.</p>
+<p>The following section was built using information from <span class="citation" data-cites="pimco">@pimco</span>.</p>
 <p>Interest rates reflect the cost of borrowing money, and they are a critical part of the economic system. In many developed countries there is a base interest rate, which is used as a benchmark rate. Said interest rate is determined by the central banks of the respective countries, and they lower or raise this instrument according to their monetary policy.</p>
 <p>The decision of what to do relating the interest rates depends highly on the levels of inflation and growth of the country. Thus, if the levels of inflation and growth are high, interest rates will probably be raised in order to decrement consumption of goods and services. This often prompts retail banks to raise the rates at which they lend, pushing up the cost of borrowing. Banks may also raise their deposit rates, which makes savings more attractive.</p>
 <p>On the other hand, if the economy is slowing, the central bank may reduce the base rate. In turn, retail banks may lower their rates making it more attractive to borrow and spend money but less attractive to save it.</p>
@@ -107,7 +92,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="short-term-versus-long-term-rates">Short-Term versus Long-Term Rates</h2>
 <p>While central banks are responsible for setting a country’s short term rate, <strong>they do not control the long term interest rates</strong>. Instead, it is the market forces of supply and demand that determine long term bond pricing. In turn, this provides direction for long term interest rates.</p>
 <blockquote class="blockquote">
-<p>For example, if market participants believe a central bank has set interest rates too low, they may worry about a potential increase in inflation. To compensate for this risk, issuers of long dated bonds will tend to offer higher interest rates. This may cause the yield curve, which reflects the relationship between long and short term bonds, to steepen.</p>
+<p>For example, if market participants belive a central bank has set interest rates too low, they may worry about a potential increase in inflation. To compensate for this risk, issuers of long dated bonds will tend to offer higher interest rates. This may cause the yield curve, which reflects the relationship between long and short term bonds, to steepen.</p>
 </blockquote>
 </section>
 <section id="why-interest-rates-affect-bonds" class="level2">
@@ -121,7 +106,7 @@ div.csl-indent {
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="IR_and_bonds_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 <figcaption class="figure-caption">Relation between bond price and yield</figcaption>
 </figure>
 </div>
@@ -136,70 +121,29 @@ div.csl-indent {
 <section id="investing-opportunities" class="level2">
 <h2 class="anchored" data-anchor-id="investing-opportunities">Investing Opportunities</h2>
 <p>Now, the real life application of this goes in the line of investment opportunities in fixed income. In the short run, when the central bank of a country has a base rate that is currently in a high level in comparison to other periods of time, this could possibly mean that if inflation is indicating a downward trend, it is likely that the central entity will reduce the base rate accordingly.</p>
-<p>It is important to note that depending on the country, the aggressiveness in which the central banks controls its base rate varies substantially. For example, from the time in which this article is being written<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the Federal Reserve has had a very <em>hawkish</em><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> stance when it comes to lowering their base rate. On the other hand, the Central Bank of Chile, has been lowering the base rate quite aggressively.</p>
-<div class="cell" data-layout-align="center">
+<p>It is important to note that depending on the country, the aggressiveness in which the central banks controls its base rate varies substantially. For example, from the time in which this article is being written<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, the Federal Reserve has had a very <em>hawkish</em> stance when it comes to lowering their base rate. On the other hand, the Central Bank of Chile, has been lowering the base rate quite aggressively.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readxl' was built under R version 4.1.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tpm_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"C:/Users/USER/OneDrive/Escritorio/Git repos/Investments_LA/Reports/Fixed income/Datos/TPM/TPM_DATA.xlsx"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> tpm_data<span class="sc">$</span>Periodo</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> tpm_data<span class="sc">$</span><span class="st">`</span><span class="at">Tasa de política monetaria (TPM) (porcentaje)</span><span class="st">`</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">xlab=</span><span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"Base Rate (%)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Chile base rate change from 2022 to 2023</figcaption>
-</figure>
+<p><img src="IR_and_bonds_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</div>
-<p>The latter has benefited fixed income focused funds, which have had good returns in the month of November and December of 2023.</p>
-</section>
-<section id="case-studies" class="level2">
-<h2 class="anchored" data-anchor-id="case-studies">Case Studies</h2>
-<p>Now, some mutual funds will be studied, whose strategies focues mainly on fixed income.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Quota value of mutual fund <em>Banchile Estrategico series L</em> (<span class="citation" data-cites="cmfchile"><span>“<span>CMF Chile</span>”</span> (<a href="#ref-cmfchile" role="doc-biblioref">n.d.</a>)</span>)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Quota value of mutual fund <em>Banchile Portafolio Conservador series L</em> (<span class="citation" data-cites="cmfchile"><span>“<span>CMF Chile</span>”</span> (<a href="#ref-cmfchile" role="doc-biblioref">n.d.</a>)</span>)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<section id="sec-BE" class="level3">
-<h3 class="anchored" data-anchor-id="sec-BE"><em>Banchile Estrategico</em></h3>
-<p>The strategy of this mutual fund is to invest in at least 60% UF<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, like deposits, and bank and corporate bonds with a duration between three and five years.</p>
-<p>This explains the positive results the fund has had in past months, because as we saw in <a href="#eq-bond-price">Equation&nbsp;1</a>, when interest rates fall, the price of bonds increases, thus providing opportunities of capital gains.</p>
-</section>
-<section id="banchile-portafolio-conservador" class="level3">
-<h3 class="anchored" data-anchor-id="banchile-portafolio-conservador"><em>Banchile Portafolio Conservador</em></h3>
-<p>The objective of the mutual fund is to offer an investment alternative in instruments of median and long term, through a portfolio that is comprised mainly by capitalization instruments<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> and debt issued by the principal institutions who participate in the national and foreign capital markets.</p>
-<p>Although this fund does not focus solely on debt instruments, it is the largest part of the portfolio, about 80%. Which, as the other example, provides good contributions to the performance of the fund, because of the reasons already mentioned in the previous <a href="#sec-BE">Section&nbsp;6.1</a>.</p>
-
-</section>
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-cmfchile" class="csl-entry" role="listitem">
-<span>“<span>CMF Chile</span>.”</span> n.d. <a href="https://www.cmfchile.cl/institucional/mercados/entidad.php?mercado=V&amp;rut=9453&amp;tipoentidad=FIRES&amp;vig=VI&amp;control=svs&amp;pestania=7" class="uri">https://www.cmfchile.cl/institucional/mercados/entidad.php?mercado=V&amp;rut=9453&amp;tipoentidad=FIRES&amp;vig=VI&amp;control=svs&amp;pestania=7</a>.
-</div>
-<div id="ref-pimco" class="csl-entry" role="listitem">
-PIMCO. n.d. <span>“How Do Rates Affect Bond Performance?”</span> <a href="https://www.pimco.com/en-us/marketintelligence/navigating-interest-rates/how-do-rates-affect-bond-performance/?r=Individual&amp;l=United%20States&amp;s=true&amp;lang=en-us#:~:text=Bond%20prices%20have%20an%20inverse%20relationship%20with%20interest,interest%20rates%20go%20down%2C%20bond%20prices%20go%20up">https://www.pimco.com/en-us/marketintelligence/navigating-interest-rates/how-do-rates-affect-bond-performance/?r=Individual&amp;l=United%20States&amp;s=true&amp;lang=en-us#:~:text=Bond%20prices%20have%20an%20inverse%20relationship%20with%20interest,interest%20rates%20go%20down%2C%20bond%20prices%20go%20up</a>.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>December of 2023<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Policy maker or advisor who prioritizes controlling inflation and may favor higher interest rates to keep it in check.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Chilean unit used to adjust the value of money in time.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Financial instrument that is classified as either equity or debt in accounting.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main>
 <!-- /main column -->
